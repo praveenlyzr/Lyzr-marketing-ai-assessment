@@ -1,0 +1,218 @@
+{
+    "assessment-questions": [
+      {
+        "id": 1,
+        "categories": "Overall AI Strategy",
+        "questions": [
+          {
+            "text": "Does your organization have a well-defined AI strategy?",
+            "options": [
+              {"answer": "We’ve got a master plan, totally aligned", "points": 5},
+              {"answer": "Strategy’s there, but needs a polish", "points": 3},
+              {"answer": "Work in progress, slowly moving", "points": 1},
+              {"answer": "Strategy? We’re still brainstorming…", "points": 0}
+            ]
+          },
+          {
+            "text": "How often is your AI strategy reviewed and updated?",
+            "options": [
+              {"answer": "Every quarter, we tweak and tune", "points": 5},
+              {"answer": "Twice a year, trend-based updates", "points": 3},
+              {"answer": "Once a year, quick check-in", "points": 1},
+              {"answer": "Checkup? What’s that?", "points": 0}
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "categories": "Upskilling",
+        "questions": [
+          {
+            "text": "How’s your AI dream team looking?",
+            "options": [
+              {"answer": "Fully loaded, always upskilling", "points": 5},
+              {"answer": "Solid team, training in progress", "points": 3},
+              {"answer": "Hiring as fast as we can", "points": 1},
+              {"answer": "We’re running low on AI talent", "points": 0}
+            ]
+          },
+          {
+            "text": "What’s the AI training scene like at your company?",
+            "options": [
+              {"answer": "Full-on, in-house programs", "points": 5},
+              {"answer": "External experts handle it", "points": 3},
+              {"answer": "Thinking about it, not started", "points": 1},
+              {"answer": "No training at all", "points": 0}
+            ]
+          },
+          {
+            "text": "How well does your team handle AI tools?",
+            "options": [
+              {"answer": "AI wizards—advanced skills", "points": 5},
+              {"answer": "Solid players with a few stars", "points": 3},
+              {"answer": "Still figuring it out", "points": 1},
+              {"answer": "AI what?", "points": 0}
+            ]
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "categories": "Culture",
+        "questions": [
+          {
+            "text": "How urgently is your organization looking to embrace AI?",
+            "options": [
+              {"answer": "We’re all in, full steam ahead", "points": 5},
+              {"answer": "We’re talking about it, but not rushing", "points": 3},
+              {"answer": "It’s on the back burner for now", "points": 1},
+              {"answer": "AI? Not even on our radar", "points": 0}
+            ]
+          },
+          {
+            "text": "How receptive is your leadership to AI-driven change?",
+            "options": [
+              {"answer": "They’re leading the charge, fully onboard", "points": 5},
+              {"answer": "They’re on board, with some hesitation", "points": 3},
+              {"answer": "They’re skeptical, but open", "points": 1},
+              {"answer": "Resistance is strong—no AI here", "points": 0}
+            ]
+          },
+          {
+            "text": "Does your organization have a change management plan for AI adoption?",
+            "options": [
+              {"answer": "Yes, detailed plan and actively managed", "points": 5},
+              {"answer": "We have a plan, but it needs work", "points": 3},
+              {"answer": "We’re thinking about a plan", "points": 1},
+              {"answer": "Plan? What plan?", "points": 0}
+            ]
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "categories": "AI Budget",
+        "questions": [
+          {
+            "text": "What’s your company’s approach to budgeting for AI?",
+            "options": [
+              {"answer": "Long-term plan in place", "points": 5},
+              {"answer": "Short-term plan, long-term coming", "points": 3},
+              {"answer": "No plan yet, but thinking about it", "points": 1},
+              {"answer": "AI isn’t in the budget talks", "points": 0}
+            ]
+          },
+          {
+            "text": "How big of a priority is AI in your budget?",
+            "options": [
+              {"answer": "AI gets the biggest slice", "points": 5},
+              {"answer": "AI shares the budget with other tech", "points": 3},
+              {"answer": "AI is on the list, but not top", "points": 1},
+              {"answer": "AI is barely funded", "points": 0}
+            ]
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "categories": "AI Agents",
+        "questions": [
+          {
+            "text": "How are AI agents used in your organization?",
+            "options": [
+              {"answer": "AI agents are crucial to multiple processes", "points": 5},
+              {"answer": "We use AI agents, but in just a few areas", "points": 3},
+              {"answer": "AI agents are in the testing phase", "points": 1},
+              {"answer": "We haven’t touched AI agents yet", "points": 0}
+            ]
+          },
+          {
+            "text": "How automated are your customer interactions (e.g., chatbots, virtual assistants)?",
+            "options": [
+              {"answer": "Fully automated, AI handles most of it", "points": 5},
+              {"answer": "Partially automated, with some human intervention", "points": 3},
+              {"answer": "Some automation, but mostly manual", "points": 1},
+              {"answer": "No automation at all—everything’s manual", "points": 0}
+            ]
+          },
+          {
+            "text": "How easy is it for your organization to implement AI agents?",
+            "options": [
+              {"answer": "Quick and seamless", "points": 5},
+              {"answer": "Fairly easy, with some effort", "points": 3},
+              {"answer": "It’s a bit challenging", "points": 1},
+              {"answer": "No AI agents implemented yet", "points": 0}
+            ]
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "categories": "Governance",
+        "questions": [
+          {
+            "text": "How well does your company know data privacy standards like GDPR or CCPA?",
+            "options": [
+              {"answer": "Fully compliant, regular audits", "points": 5},
+              {"answer": "Mostly compliant, some gaps", "points": 3},
+              {"answer": "Basic understanding, rarely followed", "points": 1},
+              {"answer": "Not familiar with them", "points": 0}
+            ]
+          },
+          {
+            "text": "What’s your approach to reducing AI bias?",
+            "options": [
+              {"answer": "Comprehensive checks, constant monitoring", "points": 5},
+              {"answer": "Basic checks, sometimes", "points": 3},
+              {"answer": "Minimal efforts", "points": 1},
+              {"answer": "No bias reduction at all", "points": 0}
+            ]
+          },
+          {
+            "text": "How do you handle data transfers across borders?",
+            "options": [
+              {"answer": "Strict protocols, fully compliant", "points": 5},
+              {"answer": "Protocols in place, but some lapses", "points": 3},
+              {"answer": "Basic protocols, inconsistently followed", "points": 1},
+              {"answer": "No protocols for this", "points": 0}
+            ]
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "categories": "Data",
+        "questions": [
+          {
+            "text": "How centralized is your data for AI projects?",
+            "options": [
+              {"answer": "Fully centralized, easy access", "points": 5},
+              {"answer": "Mostly centralized, some silos", "points": 3},
+              {"answer": "Partly fragmented, improving", "points": 1},
+              {"answer": "Completely fragmented, no central access", "points": 0}
+            ]
+          },
+          {
+            "text": "How reliable is your data for AI models?",
+            "options": [
+              {"answer": "Continuously validated and updated", "points": 5},
+              {"answer": "Verified regularly, but not real-time", "points": 3},
+              {"answer": "Occasional checks, no real-time updates", "points": 1},
+              {"answer": "No validation process in place", "points": 0}
+            ]
+          },
+          {
+            "text": "How well integrated are your data sources with AI tools?",
+            "options": [
+              {"answer": "Fully integrated with automated flows", "points": 5},
+              {"answer": "Some integrations, but manual work still needed", "points": 3},
+              {"answer": "Limited integrations, mostly manual", "points": 1},
+              {"answer": "No integration, all manual", "points": 0}
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  

@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    font-family: switzer, sans-serif;
+    background: linear-gradient(to right, #f5f5f7, rgba(255, 255, 255, 0)),
+                url(./assets/Abstract\ Design.svg) no-repeat right center;
+    background-size: contain;
+}
+
+.hero-box {
+    max-width: 720px;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.hero-box, .question-box, .results-content {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 50px;
+}
+
+.d-none {
+    display: none;
+}
+
+h1, h2 {
+    font-size: 48px;
+    color: #292929;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    color: #4E4E4E;
+    margin-bottom: 30px;
+    font-weight: 400;
+    line-height: 28px;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 200px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #5638CF 0%, #F38868 100%);
+    box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+}
+
+.btn:hover {
+    background: #292929;
+}
+
+#answers-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
