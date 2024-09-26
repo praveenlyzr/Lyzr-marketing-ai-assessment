@@ -21,13 +21,25 @@
 
         <!-- Questions Section -->
         <div id="question-section" class="d-none">
-            <div class="question-box">
-                <div class="question-content">
-                    <h2 id="question-title"></h2>
-                    <div id="answers-container"></div>
-                    <button id="next-question-btn" class="btn btn-primary">Next Question</button>
+            <div class="header-logo"><img src="./assets/logo.svg" alt=""></div>
+            <div class="progress-bar-container">
+                <p id="category-label" class="progress-label"></p>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="progress-content">
+                    <p class="progress-percentage">0%</p>
+                    <p class="duration">Duration 5 min.</p>
                 </div>
             </div>
+
+            <div class="question-box">
+                <div class="question-content">
+                    <h2 id="question-text"></h2>
+                    <div id="answers-container"></div>
+                </div>
+            </div>
+            <button id="next-question-btn" class="btn btn-primary">Next Question</button>
         </div>
 
         <!-- Results Section -->

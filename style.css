@@ -10,7 +10,7 @@ body {
 }
 
 .hero-box {
-    max-width: 720px;
+    max-width: 820px;
 }
 
 .logo {
@@ -19,7 +19,7 @@ body {
     margin-bottom: 20px;
 }
 
-.hero-box, .question-box, .results-content {
+.hero-box, .results-content {
     position: relative;
     height: 100vh;
     display: flex;
@@ -33,7 +33,7 @@ body {
 }
 
 h1, h2 {
-    font-size: 48px;
+    font-size: 36px;
     color: #292929;
     font-weight: 700;
     margin-bottom: 20px;
@@ -63,6 +63,43 @@ p {
     background: #292929;
 }
 
+#question-section {
+    padding: 30px 60px;
+    max-width: 720px;
+    margin-bottom: 24px;
+}
+
+#question-section .header-logo img{
+    width: 7vw;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+#question-section .question-box {
+    padding: 16px;
+    border: 1px solid #CACACA80;
+    border-radius: 8px;
+    margin-bottom: 70px;
+}
+
+#question-section .question-box h2 {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+#answers-container label {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.progress-bar-container .progress-content {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
 #answers-container {
     display: flex;
     flex-direction: column;
@@ -71,4 +108,37 @@ p {
 
 input[type="radio"] {
     margin-right: 10px;
+}
+
+/* Progress Bar Styles */
+.progress-bar-container {
+    display: flex;
+    flex-direction: column;
+    /*border-bottom: 1px solid #CACACA;*/
+}
+
+.progress-label {
+    font-size: 20px;
+    color: #292929;
+    margin-bottom: 5px;
+}
+
+.progress {
+    height: 5px;
+    background-color: #e9ecef;
+    border-radius: 2.5px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: #5638CF;
+}
+
+.progress-percentage, .duration {
+    font-size: 14px;
+    color: #4E4E4E;
+}
+
+.duration {
+    margin-left: auto;
 }
