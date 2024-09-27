@@ -21,7 +21,6 @@ body {
 
 .hero-box, .results-content {
     position: relative;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -143,3 +142,84 @@ input[type="radio"] {
 .duration {
     margin-left: auto;
 }
+
+/* Result section */
+
+#result-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.results-box {
+    max-width: 880px;
+    margin-bottom: 24px;
+    border: 1px solid #CACACA;
+    padding: 20px 20px;
+    margin: 0 auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.results-box .title {
+    border-bottom: 1px solid #dddddd;
+    padding-bottom: 10px;
+}
+
+.results-box .results {
+    font-size: 16px;
+}
+
+.results-box .results-hero-top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.results-box .category h2{
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 60px;
+    color: #12B76A;
+    margin: 0;
+}
+
+.progress-bar-2 {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .progress-bar-2 .bar {
+    flex: 1;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  .progress-bar-2 {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .progress-bar-2 .progress-bar-wrap {
+    margin: 0 2px;
+  }
+
+  .progress-bar-2 .progress-bar-wrap p{
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    margin-bottom: 2px;
+    text-wrap: nowrap;
+    letter-spacing: -0.21px;
+  }
+  
+  .progress-bar-2 .bar:last-child {
+    margin-right: 0;
+  }
+  

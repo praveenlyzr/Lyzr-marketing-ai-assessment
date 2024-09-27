@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const resultsContent = document.querySelector(".results-content");
 
     let data = {};
+    let scoreData = {};
     let currentCategoryIndex = 0;
     let totalScore = 0;
     let categoryScores = {}; // To keep track of scores for each category
@@ -35,6 +36,16 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(error => {
             console.error('Error fetching questions:', error);
+        });
+
+    // Fetch the score results from the JSON file
+    fetch('./data/results.json')
+        .then(response => response.json())
+        .then(jsonData => {
+            scoreData = jsonData;
+        })
+        .catch(error => {
+            console.error('Error fetching results:', error);
         });
 
     nextQuestionButton.addEventListener("click", () => {
@@ -89,15 +100,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 const label = document.createElement('label');
                 label.innerHTML = `<input type="radio" name="answer-${questionIndex}" data-points="${option.points}"> ${option.answer}`;
                 questionAnswersContainer.appendChild(label);
-                
+
                 // Add event listener to radio buttons to track selections
                 label.querySelector('input').addEventListener('change', (event) => {
                     // Get the points of the selected answer
                     const selectedPoints = parseInt(event.target.getAttribute("data-points"));
-                    
+
                     // Update the score for this question
                     answeredQuestions[questionIndex] = selectedPoints;
-                    
+
                     checkIfAllQuestionsAnswered(); // Check if all questions are answered
                     scrollToNextQuestion(questionIndex); // Scroll to the next question when an answer is selected
                 });
@@ -123,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (Object.keys(answeredQuestions).length === totalQuestionsInCategory) {
             // Calculate the total score for the current category
             const categoryScore = Object.values(answeredQuestions).reduce((acc, points) => acc + points, 0);
-            
+
             // Save the score for this category
             const currentCategory = categoryData.categories;
             categoryScores[currentCategory] = categoryScore;
@@ -161,35 +172,78 @@ document.addEventListener("DOMContentLoaded", () => {
     function showResults() {
         // Calculate the total score from all categories
         totalScore = Object.values(categoryScores).reduce((acc, categoryScore) => acc + categoryScore, 0);
-
-        // Hide the question section and show the results section
-        questionSection.classList.add("d-none");
-        resultsSection.classList.remove("d-none");
-
-        // Display the total score and the score per category
-        resultsContent.innerHTML = ''; // Clear any previous content
-        
-        const resultMessage = document.createElement('p');
-        resultMessage.textContent = `Your overall score is: ${totalScore}`;
-        resultsContent.appendChild(resultMessage);
-
-        // Loop through all categories and display their scores
-        Object.keys(categoryScores).forEach(category => {
-            const categoryResult = document.createElement('p');
-            categoryResult.textContent = `Category "${category}" score: ${categoryScores[category]}`;
-        });
-
-        // Customize the results based on the score
-        const feedback = document.createElement('p');
-        if (totalScore > 80) {
-            feedback.textContent = "Great job! You have a strong understanding.";
-        } else if (totalScore > 50) {
-            feedback.textContent = "Good effort! There's room for improvement.";
-        } else {
-            feedback.textContent = "Keep learning! Practice will help you improve.";
-        }
-
-        // Append feedback to the results content section
-        resultsContent.appendChild(feedback);
+    
+        // Determine the category based on total score
+        let categoryKey;
+        if (totalScore >= 95) categoryKey = "pioneers";
+        else if (totalScore >= 80) categoryKey = "leaders";
+        else if (totalScore >= 65) categoryKey = "contenders";
+        else if (totalScore >= 50) categoryKey = "chasers";
+        else categoryKey = "followers";
+    
+        // Get category name and corresponding image based on the score
+        const categoryData = {
+            "pioneers": {
+                label: "Pioneers",
+                imageSrc: "./assets/pioneers.svg"
+            },
+            "leaders": {
+                label: "Leaders",
+                imageSrc: "./assets/leaders.svg"
+            },
+            "contenders": {
+                label: "Contenders",
+                imageSrc: "./assets/contenders.svg"
+            },
+            "chasers": {
+                label: "Chasers",
+                imageSrc: "./assets/chasers.svg"
+            },
+            "followers": {
+                label: "Followers",
+                imageSrc: "./assets/followers.svg"
+            }
+        };
+    
+        // Get the category label and image based on the score
+        const selectedCategory = categoryData[categoryKey];
+    
+        // Populate category label and image in the results section
+        document.querySelector(".percentage").textContent = selectedCategory.label;
+        document.querySelector(".category-image").src = selectedCategory.imageSrc;
+    
+        // Populate the rest of the content for the results
+        const categoryResult = scoreData[categoryKey];
+        resultsContent.innerHTML = `
+            <h2>Your Score: ${totalScore}</h2>
+            <h3>${categoryResult.score_range}</h3>
+            <p>${categoryResult.summary}</p>
+            <h4>Next Steps:</h4>
+            <div class="collapsible" onclick="this.classList.toggle('active');">
+                <button class="collapsible-btn">View Next Steps</button>
+                <div class="collapsible-content" style="display: none;">
+                    <ul>
+                        ${Object.entries(categoryResult.next_steps).map(([step, description]) => `<li>${description}</li>`).join('')}
+                    </ul>
+                </div>
+            </div>
+            <h4>Resources:</h4>
+            <div class="collapsible" onclick="this.classList.toggle('active');">
+                <button class="collapsible-btn">View Resources</button>
+                <div class="collapsible-content" style="display: none;">
+                    <ul>
+                        ${categoryResult.resources.map(resource => `<li>${resource}</li>`).join('')}
+                    </ul>
+                </div>
+            </div>
+        `;
     }
+    
+    // Add click event to toggle collapsible content
+    document.querySelectorAll('.collapsible').forEach(collapsible => {
+        collapsible.addEventListener('click', function () {
+            const content = this.querySelector('.collapsible-content');
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        });
+    });
 });

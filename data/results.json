@@ -1,0 +1,100 @@
+{
+    "pioneers": {
+      "score_range": "95-110 points",
+      "summary": "As a Pioneer, your organization is at the forefront of AI adoption and innovation. You have a comprehensive AI strategy that is fully aligned with your business objectives, supported by well-defined governance frameworks and cutting-edge infrastructure. Your organization doesn’t just leverage AI to drive competitive advantage internally but sets an example for the entire industry. You are likely using AI across multiple departments, and your ability to experiment and iterate allows you to stay ahead of emerging technologies. Furthermore, your leadership in AI positions you to shape the future of AI adoption across mid-market and large enterprises.",
+      "next_steps": {
+        "expand_ai_capabilities": "Continue investing in advanced AI research and development, focusing on integrating AI into new areas of your business and pioneering cutting-edge AI applications.",
+        "thought_leadership": "Consider creating thought leadership content that shares your AI journey, challenges, and innovations with the broader community. Regularly publish articles, whitepapers, and case studies on AI best practices.",
+        "train_and_upskill": "Scale your internal AI expertise by training and upskilling your workforce to handle advanced AI projects. Empower your team to become AI ambassadors within and outside your organization.",
+        "community_engagement": "Actively participate in AI conferences, seminars, and panels as keynote speakers, contributing to AI education and thought leadership. Influence how AI is adopted and implemented across industries.",
+        "shape_future_of_ai": "Collaborate with academic institutions, think tanks, and AI startups to foster innovation and create a robust AI ecosystem. Set the standard for AI maturity through partnerships and shared knowledge initiatives."
+      },
+      "resources": [
+        "Speak to an Expert at Lyzr",
+        "Learn About Organizational General Intelligence (OGI)",
+        "The next step in Agents: Agent Mesh"
+      ]
+    },
+    "leaders": {
+      "score_range": "80-94 points",
+      "summary": "As a Leader, your organization has made impressive strides in AI adoption and is positioned to continue leveraging AI for substantial business growth. Your AI strategy is solid, but to unlock its full potential, you need to look beyond internal optimization and begin expanding your influence within the AI ecosystem. Leaders are expected to push boundaries, setting trends, and paving the way for other organizations. While your AI initiatives are ahead of many competitors, you are in a prime position to further elevate your leadership by embracing cutting-edge AI solutions and engaging more deeply with the broader AI community.",
+      "next_steps": {
+        "partner_with_startups": "Actively collaborate with emerging AI startups through pilot programs and accelerator partnerships.",
+        "expand_thought_leadership": "Increase your organization's influence by regularly publishing research papers, case studies, and insights into AI’s future potential.",
+        "run_innovation_challenges": "Host or participate in challenges similar to the Accenture Venture Challenge.",
+        "create_use_cases": "Identify key areas within your business where AI is making the most impact and create detailed use cases around them."
+      },
+      "resources": [
+        "Speak to an Expert at Lyzr",
+        "Learn About Organizational General Intelligence (OGI)",
+        "Explore Lyzr Academy",
+        "Publish AI Success Stories"
+      ]
+    },
+    "contenders": {
+      "score_range": "65-79 points",
+      "summary": "As a Contender, your organization is in a solid position on the AI maturity journey. You've laid a strong foundation, and with some targeted efforts, you can significantly improve your AI capabilities. While you've had success in initial AI initiatives, now is the time to focus on scaling these efforts and building the internal expertise needed to sustain them. You are at a critical point where making the right investments in talent and partnerships can propel you forward and help you compete more effectively with the top players in the AI space.",
+      "next_steps": {
+        "upskill_training": "Invest in developing your internal talent by offering comprehensive AI training programs.",
+        "build_partnerships": "Collaborate with other players in the AI ecosystem, including tech vendors, consultants, and academic institutions.",
+        "explore_startups": "Keep a close eye on the latest AI startups and cutting-edge tools emerging in the market.",
+        "external_expertise": "Consider working with external AI experts or consultants to help refine your AI strategy and guide implementation."
+      },
+      "resources": [
+        "Speak to an Expert at Lyzr",
+        "Learn About Organizational General Intelligence (OGI)",
+        "Explore the AI Stack at Lyzr Academy",
+        "Discover New AI Tools"
+      ]
+    },
+    "chasers": {
+      "score_range": "50-64 points",
+      "summary": "As a Chaser, your organization is making strides toward AI adoption but still has significant work to do to build a consistent and cohesive AI strategy. You’ve likely seen success in some areas, but your efforts may lack the structure and governance needed to scale AI across the organization. This is a critical stage for your business to decide whether to push forward and catch up with competitors or risk falling further behind.",
+      "next_steps": {
+        "invite_speakers": "Invite external AI experts for knowledge sharing and organize internal events.",
+        "assign_ai_champions": "Assign AI champions within your organization who can take ownership of driving AI projects forward.",
+        "run_pocs": "Engage with AI startups to explore potential collaborations and run POCs.",
+        "develop_governance": "Start building governance frameworks necessary for responsible AI deployment."
+      },
+      "resources": [
+        "Speak to an Expert at Lyzr",
+        "Learn About AI Agents",
+        "Explore the AI Stack at Lyzr Academy",
+        "Pilot POCs with AI Startups"
+      ]
+    },
+    "followers": {
+      "score_range": "35-49 points",
+      "summary": "As a Follower, your organization is in the early stages of AI adoption, with some initiatives in progress but without a clear, cohesive strategy to guide your efforts. AI may not yet be a priority across the organization, and gaps in talent, infrastructure, and governance are hindering your ability to scale AI effectively. However, you’re at an exciting juncture where the right steps can rapidly accelerate your AI journey.",
+      "next_steps": {
+        "organize_ai_months": "Dedicate a specific month or series of weeks each year to AI, where the whole company engages with AI-focused activities.",
+        "gamify_engagement": "Gamify AI adoption by creating teams, tracking progress through a point system, and fostering competition.",
+        "assign_ai_champions": "Assign internal AI champions who are responsible for driving AI initiatives.",
+        "invite_startups": "Host pitch events where AI startups present their solutions to your organization.",
+        "build_partnerships": "Start looking at partnerships with AI vendors, consultants, and academic institutions.",
+        "upskill_company": "Focus on upskilling your entire workforce by implementing company-wide AI training programs.",
+        "external_speakers": "Regularly invite external AI experts to speak to your teams about trends and AI implementations.",
+        "create_ai_plan": "Establish a clear AI roadmap that outlines your organization's goals for the next 6 months to 2 years."
+      },
+      "resources": [
+        "Speak to an Expert at Lyzr",
+        "Learn about the Enterprise AI Stack",
+        "Learn about What are AI Agents?"
+      ]
+    },
+    "laggards": {
+      "score_range": "0-34 points",
+      "summary": "As a Laggard, your organization is significantly behind in AI adoption, placing you at risk of falling further behind in an increasingly AI-driven business landscape. Your organization may not have any AI initiatives in place, or if there are some, they are likely sporadic, unstructured, and lacking in strategic direction. While AI initiatives may exist, they are not aligned with overall business goals, and there are gaps in talent, infrastructure, and governance.",
+      "next_steps": {
+        "build_basics": "Start with the basics of AI adoption, focusing on creating a simple AI strategy and upskilling staff.",
+        "engage_experts": "Bring in external AI consultants to help guide initial projects and establish a foundation for future initiatives.",
+        "develop_governance": "Focus on building governance frameworks to ensure AI is used responsibly."
+      },
+      "resources": [
+        "Speak to an Expert at Lyzr",
+        "Learn the Basics of AI",
+        "Get Started with AI at Lyzr Academy"
+      ]
+    }
+  }
+  
