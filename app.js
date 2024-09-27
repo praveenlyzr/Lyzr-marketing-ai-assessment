@@ -221,22 +221,16 @@ document.addEventListener("DOMContentLoaded", () => {
             <h3>${categoryResult.score_range}</h3>
             <p>${categoryResult.summary}</p>
             <h4>Next Steps:</h4>
-            <div class="collapsible" onclick="this.classList.toggle('active');">
-                <button class="collapsible-btn">View Next Steps</button>
-                <div class="collapsible-content" style="display: none;">
-                    <ul>
-                        ${Object.entries(categoryResult.next_steps).map(([step, description]) => `<li>${description}</li>`).join('')}
-                    </ul>
-                </div>
+            <div class="next-steps">
+                <ul>
+                    ${Object.entries(categoryResult.next_steps).map(([step, description]) => `<li class="result-content-p">${description}</li>`).join('')}
+                </ul>
             </div>
             <h4>Resources:</h4>
-            <div class="collapsible" onclick="this.classList.toggle('active');">
-                <button class="collapsible-btn">View Resources</button>
-                <div class="collapsible-content" style="display: none;">
-                    <ul>
-                        ${categoryResult.resources.map(resource => `<li>${resource}</li>`).join('')}
-                    </ul>
-                </div>
+            <div class="resources">
+                <ul>
+                    ${categoryResult.resources.map(resource => `<li class="result-content-p">${resource}</li>`).join('')}
+                </ul>
             </div>
         `;
         resultsContent.querySelectorAll('.collapsible').forEach(collapsible => {
