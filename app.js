@@ -170,6 +170,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function showResults() {
+        questionSection.classList.add("d-none");
+        resultsSection.classList.remove("d-none");
         // Calculate the total score from all categories
         totalScore = Object.values(categoryScores).reduce((acc, categoryScore) => acc + categoryScore, 0);
     
@@ -237,6 +239,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             </div>
         `;
+        resultsContent.querySelectorAll('.collapsible').forEach(collapsible => {
+            collapsible.addEventListener('click', function () {
+                const content = this.querySelector('.collapsible-content');
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            });
+        });
     }
     
     // Add click event to toggle collapsible content
