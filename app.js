@@ -14,20 +14,18 @@ document.addEventListener("DOMContentLoaded", () => {
     let scoreData = {};
     let currentCategoryIndex = 0;
     let totalScore = 0;
-    let categoryScores = {}; // To keep track of scores for each category
-    let answeredQuestions = {}; // Keeps track of which questions have been answered
+    let categoryScores = {};
+    let answeredQuestions = {};
 
     // Fetch JSON file containing questions
     fetch('./data/questions.json')
         .then(response => response.json())
         .then(jsonData => {
             data = jsonData;
-            // Initialize category scores
             data["assessment-questions"].forEach(category => {
                 categoryScores[category.categories] = 0;
             });
 
-            // Add event listener to the Start button after loading data
             startButton.addEventListener("click", () => {
                 startSection.classList.add("d-none");
                 questionSection.classList.remove("d-none");
@@ -49,12 +47,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
     nextQuestionButton.addEventListener("click", () => {
-        // Move to the next category or show results
         currentCategoryIndex++;
         if (currentCategoryIndex < data["assessment-questions"].length) {
             loadQuestionsForCategory();
-            scrollToTop();  // Scroll to top when a new category is loaded
+            scrollToTop();
         } else {
+            scrollToTop();
             showResults();
         }
     });
@@ -62,67 +60,46 @@ document.addEventListener("DOMContentLoaded", () => {
     function loadQuestionsForCategory() {
         const categoryData = data["assessment-questions"][currentCategoryIndex];
         const questions = categoryData.questions;
-
-        // Reset the state of answered questions
         answeredQuestions = {};
-
-        // Update the category label
         categoryLabel.textContent = categoryData.categories;
-
-        // Disable the Next button initially
         nextQuestionButton.disabled = true;
-
-        // Clear any previous content
         answersContainer.innerHTML = '';
 
-        // Loop through all questions in the current category
         questions.forEach((questionData, questionIndex) => {
             const questionBox = document.createElement('div');
             questionBox.classList.add('question-box');
-            questionBox.id = `question-box-${questionIndex}`; // Add an ID for each question box
+            questionBox.id = `question-box-${questionIndex}`;
 
-            // Create the question content (header and answers container)
             const questionContent = document.createElement('div');
             questionContent.classList.add('question-content');
 
-            // Create and append the question text
             const questionText = document.createElement('h2');
             questionText.textContent = questionData.text;
             questionContent.appendChild(questionText);
 
-            // Create and append the answers for each question
             const questionAnswersContainer = document.createElement('div');
             questionAnswersContainer.id = `answers-container-${questionIndex}`;
             questionAnswersContainer.classList.add('answers-container');
 
-            // Loop through all answer options for the current question
-            questionData.options.forEach(option => {
+            questionData.options.forEach((option, index) => {
                 const label = document.createElement('label');
+                label.classList.add('radio-label', `color-${index}`); // Add color class based on index
                 label.innerHTML = `<input type="radio" name="answer-${questionIndex}" data-points="${option.points}"> ${option.answer}`;
                 questionAnswersContainer.appendChild(label);
 
-                // Add event listener to radio buttons to track selections
                 label.querySelector('input').addEventListener('change', (event) => {
-                    // Get the points of the selected answer
                     const selectedPoints = parseInt(event.target.getAttribute("data-points"));
-
-                    // Update the score for this question
                     answeredQuestions[questionIndex] = selectedPoints;
-
-                    checkIfAllQuestionsAnswered(); // Check if all questions are answered
-                    scrollToNextQuestion(questionIndex); // Scroll to the next question when an answer is selected
+                    checkIfAllQuestionsAnswered();
+                    scrollToNextQuestion(questionIndex);
                 });
             });
 
-            // Append the question content and answers container to the question box
             questionContent.appendChild(questionAnswersContainer);
             questionBox.appendChild(questionContent);
-
-            // Append the entire question box to the answers container (main container)
             answersContainer.appendChild(questionBox);
         });
 
-        // Update the progress bar
         updateProgressBar();
     }
 
@@ -130,12 +107,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const categoryData = data["assessment-questions"][currentCategoryIndex];
         const totalQuestionsInCategory = categoryData.questions.length;
 
-        // Enable the "Next" button only if all questions in the category have been answered
         if (Object.keys(answeredQuestions).length === totalQuestionsInCategory) {
-            // Calculate the total score for the current category
             const categoryScore = Object.values(answeredQuestions).reduce((acc, points) => acc + points, 0);
-
-            // Save the score for this category
             const currentCategory = categoryData.categories;
             categoryScores[currentCategory] = categoryScore;
 
@@ -144,19 +117,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function scrollToNextQuestion(currentIndex) {
-        // Find the next question box
         const nextQuestionBox = document.getElementById(`question-box-${currentIndex + 1}`);
         if (nextQuestionBox) {
-            // Scroll smoothly to the next question box
             nextQuestionBox.scrollIntoView({ behavior: 'smooth' });
         }
     }
 
     function scrollToTop() {
-        // Scroll to the top of the question section when a new category is loaded
         window.scrollTo({
             top: 0,
-            behavior: 'smooth' // Smooth scroll to the top
+            behavior: 'smooth'
         });
     }
 
@@ -172,10 +142,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function showResults() {
         questionSection.classList.add("d-none");
         resultsSection.classList.remove("d-none");
-        // Calculate the total score from all categories
         totalScore = Object.values(categoryScores).reduce((acc, categoryScore) => acc + categoryScore, 0);
     
-        // Determine the category based on total score
         let categoryKey;
         if (totalScore >= 95) categoryKey = "pioneers";
         else if (totalScore >= 80) categoryKey = "leaders";
@@ -183,7 +151,6 @@ document.addEventListener("DOMContentLoaded", () => {
         else if (totalScore >= 50) categoryKey = "chasers";
         else categoryKey = "followers";
     
-        // Get category name and corresponding image based on the score
         const categoryData = {
             "pioneers": {
                 label: "Pioneers",
@@ -207,14 +174,11 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         };
     
-        // Get the category label and image based on the score
         const selectedCategory = categoryData[categoryKey];
     
-        // Populate category label and image in the results section
         document.querySelector(".percentage").textContent = selectedCategory.label;
         document.querySelector(".category-image").src = selectedCategory.imageSrc;
     
-        // Populate the rest of the content for the results
         const categoryResult = scoreData[categoryKey];
         resultsContent.innerHTML = `
             <h2>Your Score: ${totalScore}</h2>
@@ -226,26 +190,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     ${Object.entries(categoryResult.next_steps).map(([step, description]) => `<li class="result-content-p">${description}</li>`).join('')}
                 </ul>
             </div>
-            <h4>Resources:</h4>
-            <div class="resources">
-                <ul>
-                    ${categoryResult.resources.map(resource => `<li class="result-content-p">${resource}</li>`).join('')}
-                </ul>
-            </div>
         `;
-        resultsContent.querySelectorAll('.collapsible').forEach(collapsible => {
-            collapsible.addEventListener('click', function () {
-                const content = this.querySelector('.collapsible-content');
-                content.style.display = content.style.display === 'block' ? 'none' : 'block';
-            });
-        });
     }
-    
-    // Add click event to toggle collapsible content
-    document.querySelectorAll('.collapsible').forEach(collapsible => {
-        collapsible.addEventListener('click', function () {
-            const content = this.querySelector('.collapsible-content');
-            content.style.display = content.style.display === 'block' ? 'none' : 'block';
-        });
-    });
 });

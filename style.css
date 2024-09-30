@@ -79,7 +79,7 @@ p {
     padding: 16px;
     border: 1px solid #CACACA80;
     border-radius: 8px;
-    margin-bottom: 70px;
+    margin-bottom: 30px;
 }
 
 #question-section .question-box h2 {
@@ -164,9 +164,13 @@ input[type="radio"] {
     margin-bottom: 20px;
 }
 
-.result-box p, .result-content-p {
-    font-size: 16px;
-    line-height: 24px;
+.results-content H3{
+    margin-bottom: 10px;
+}
+
+.results-content p, .result-content-p {
+    font-size: 16px !important;
+    line-height: 28px;
     color: #4E4E4E;
     margin-bottom: 20px;
 }
@@ -249,4 +253,50 @@ input[type="radio"] {
     box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
     margin-bottom: 10px;
   }
+
+
+  .results-box ul.resources {
+    /* display: block; */
+    display: flex;
+    flex-direction: column;
+    column-gap: 10px;
+    row-gap: 10px;
+  }
   
+
+/* Radio buttons */
+
+input[type="radio"] {
+    width: 12px; /* Adjust width as needed */
+    height: 12px; /* Adjust height as needed */
+    border-radius: 50%; /* Makes the border circular */
+    appearance: none; /* Remove default radio button style */
+    outline: none; /* Remove outline */
+}
+
+.color-0 input {
+    border: 1px solid #03C03C; /* Dark Green */
+    box-shadow: 0 0 0 1px #03C03C;
+}
+
+.color-1 input {
+    border: 1px solid #568203; /* Dark Green */
+    box-shadow: 0 0 0 1px #568203;
+}
+
+.color-2 input {
+    border: 1px solid 	#880808; /* Dark Red */
+    box-shadow: 0 0 0 1px 	#880808;
+}
+
+.color-3 input {
+    border: 1px solid #F44336; /* Dark Red */
+    box-shadow: 0 0 0 1px #F44336;
+}
+
+input[type="radio"]:checked {
+    background-color: #007FFF; /* Add background color when selected */
+    border-color: #007FFF; /* Change border color when selected */
+    border: 5px solid #007FFF;
+    box-shadow: none;
+}
