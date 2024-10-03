@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const progressPercentage = document.querySelector('.progress-percentage');
     const resultsSection = document.getElementById("results-section");
     const resultsContent = document.querySelector(".results-content");
+    const resultsHero = document.querySelector('.results-hero'); // Added reference for hero top section
 
     let data = {};
     let scoreData = {};
@@ -140,6 +141,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function showResults() {
+        // Reference to the element with the background
+        const body = document.body; // or any other specific container element
+    
+        // Remove the background
+        body.style.background = 'none';
+    
         questionSection.classList.add("d-none");
         resultsSection.classList.remove("d-none");
         totalScore = Object.values(categoryScores).reduce((acc, categoryScore) => acc + categoryScore, 0);
@@ -149,47 +156,64 @@ document.addEventListener("DOMContentLoaded", () => {
         else if (totalScore >= 80) categoryKey = "leaders";
         else if (totalScore >= 65) categoryKey = "contenders";
         else if (totalScore >= 50) categoryKey = "chasers";
-        else categoryKey = "followers";
+        else if (totalScore >= 35) categoryKey = "followers";
+        else categoryKey = "laggards";
     
         const categoryData = {
             "pioneers": {
-                label: "Pioneers",
-                imageSrc: "./assets/pioneers.svg"
+                label: "10% Pioneers",
+                imageSrc: "./assets/pioneers.svg",
+                color: "#12B76ACC"
             },
             "leaders": {
-                label: "Leaders",
-                imageSrc: "./assets/leaders.svg"
+                label: "12% Leaders",
+                imageSrc: "./assets/leaders.svg",
+                color: "#0BA5ECCC"
             },
             "contenders": {
-                label: "Contenders",
-                imageSrc: "./assets/contenders.svg"
+                label: "33% Contenders",
+                imageSrc: "./assets/contenders.svg",
+                color: "#F63D68CC"
             },
             "chasers": {
-                label: "Chasers",
-                imageSrc: "./assets/chasers.svg"
+                label: "15% Chasers",
+                imageSrc: "./assets/chasers.svg",
+                color: "#7A5AF8CC"
             },
             "followers": {
-                label: "Followers",
-                imageSrc: "./assets/followers.svg"
+                label: "16% Followers",
+                imageSrc: "./assets/followers.svg",
+                color: "#FB6514CC"
+            },
+            "laggards": {
+                label: "14% Laggards",
+                imageSrc: "./assets/laggards.svg",
+                color: "#4E5BA6CC"
             }
         };
     
         const selectedCategory = categoryData[categoryKey];
     
-        document.querySelector(".percentage").textContent = selectedCategory.label;
+        // Apply the dynamic font color to the label
+        const percentageLabel = document.querySelector(".percentage");
+        percentageLabel.textContent = selectedCategory.label;
+        percentageLabel.style.color = selectedCategory.color;  // Set the font color dynamically
+    
         document.querySelector(".category-image").src = selectedCategory.imageSrc;
     
         const categoryResult = scoreData[categoryKey];
-        resultsContent.innerHTML = `
-            <h2>Your Score: ${totalScore}</h2>
-            <h3>${categoryResult.score_range}</h3>
-            <p>${categoryResult.summary}</p>
-            <h4>Next Steps:</h4>
+        
+        // Inserting the summary into .results-hero
+        resultsHero.innerHTML += `<p class="d-block category-summary">${categoryResult.summary}</p>`; // Add summary to hero top
+
+        resultsContent.innerHTML = 
+            `<h2>Your Score: ${totalScore}</h2>
+            <h3 class="title">Next Steps:</h3>
             <div class="next-steps">
-                <ul>
-                    ${Object.entries(categoryResult.next_steps).map(([step, description]) => `<li class="result-content-p">${description}</li>`).join('')}
-                </ul>
-            </div>
-        `;
+                <div>
+                    ${Object.entries(categoryResult.next_steps).map(([step, description]) => `<p class="result-content-p">${description}</p>`).join('')}
+                </div>
+            </div>`;
     }
+    
 });

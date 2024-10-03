@@ -5,13 +5,14 @@ body {
     width: 100vw;
     font-family: switzer, sans-serif;
     background: linear-gradient(to right, #f5f5f7, rgba(255, 255, 255, 0)),
-                url(./assets/Abstract\ Design.svg) no-repeat right center;
+                url(./assets/logo_home.svg) no-repeat right center;
     background-size: contain;
 }
 
 .hero-box {
     max-width: 820px;
     height: 100vh;
+    margin: 0 40px;
 }
 
 .logo {
@@ -25,7 +26,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 50px;
 }
 
 .d-none {
@@ -51,7 +51,6 @@ p {
     display: flex;
     align-items: center;
     gap: 8px;
-    width: 200px;
     padding: 10px 18px;
     border: none;
     border-radius: 4px;
@@ -146,13 +145,10 @@ input[type="radio"] {
 
 /* Result section */
 
-#result-section {
-    display: flex;
-    flex-direction: column;
+#results-section {
     align-items: center;
     justify-content: center;
-    padding: 20px;
-    margin-top: 50px;
+    margin: 50px 30px;
 }
 
 .results-box {
@@ -163,6 +159,7 @@ input[type="radio"] {
     margin: 0 auto;
     border-radius: 8px;
     margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .results-content H3{
@@ -192,6 +189,10 @@ input[type="radio"] {
     align-items: center;
 }
 
+.results-box .results-hero-top .percentage{
+    color: #12B76A;
+}
+
 .results-box .category h2{
     font-weight: 900;
     font-size: 48px;
@@ -200,13 +201,9 @@ input[type="radio"] {
     margin: 0;
 }
 
-.progress-bar-2 {
-    display: flex;
-    justify-content: space-around;
-  }
+
   
-  .progress-bar-2 .bar {
-    flex: 1;
+  .results-hero-bottom .bar {
     padding: 20px;
     color: #fff;
     text-align: center;
@@ -214,25 +211,19 @@ input[type="radio"] {
     font-size: 14px;
   }
 
-  .progress-bar-2 {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .progress-bar-2 .progress-bar-wrap {
+  .results-hero-bottom .progress-bar-wrap {
     margin: 0 2px;
   }
 
-  .progress-bar-2 .progress-bar-wrap p{
+  .results-hero-bottom .progress-bar-wrap p{
     font-size: 12px;
     font-weight: 500;
     line-height: 18px;
     margin-bottom: 2px;
-    text-wrap: nowrap;
     letter-spacing: -0.21px;
   }
   
-  .progress-bar-2 .bar:last-child {
+  .results-hero-bottom .bar:last-child {
     margin-right: 0;
   }
 
@@ -254,6 +245,7 @@ input[type="radio"] {
     box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
     margin-bottom: 10px;
   }
+
 
 
   .results-box ul.resources {
@@ -300,4 +292,62 @@ input[type="radio"]:checked {
     border-color: #007FFF; /* Change border color when selected */
     border: 5px solid #007FFF;
     box-shadow: none;
+}
+
+.results-box .subheading{
+    font-size: 22.5px;
+    margin-top: 30px;
+}
+
+.results-box .side-text{
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 10px;
+}
+.results-hero .category-summary {
+    text-align: justify;
+}
+
+
+
+/* Ensure the parent container is flexible */
+.results-hero-top {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center;    /* Center content horizontally */
+    justify-content: center;
+    width: 100%;            /* Allow full width */
+    max-width: 1200px;      /* Optional: Set a max width if needed */
+    margin: 0 auto;         /* Center the container */
+}
+
+/* Ensure that the image inside scales well with its container */
+.results-hero-top img {
+    max-width: 100%;        /* Image scales within the container */
+    height: auto;
+}
+
+/* If there's any fixed width for .results-hero-bottom, make it responsive */
+.results-hero-bottom {
+    width: 100%;            /* Set to full width */
+    max-width: 1200px;      /* Optional: Set a max width */
+    margin: 20px auto;
+}
+
+.progress-bar-wrap {
+    display: block;
+    width: 100%;            /* Full width on smaller screens */
+    margin-bottom: 10px;
+}
+
+/* Responsive behavior for smaller screens */
+@media only screen and (max-width: 768px) {
+    .results-hero-top, .results-hero-bottom {
+        padding: 10px;      /* Less padding on smaller screens */
+        width: 100%;
+    }
+
+    .progress-bar-wrap {
+        width: 100%;        /* Full width for smaller devices */
+    }
 }

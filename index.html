@@ -36,9 +36,9 @@
         <div class="hero-box" id="start-section">
             <div class="logo"><img src="./assets/logo.svg" alt="lyzr"></div>
             <div class="content">
-                <h1>Comprehensive AI Maturity Assessment for Business Leaders</h1>
-                <p>This AI maturity assessment is designed for mid-market and large companies, consisting of 20 questions that cover various aspects of your organization’s AI capabilities. Each question is scored, and your total score will place your organization into one of six categories. The results will provide detailed insights into your AI journey and recommend actionable steps to enhance your AI maturity.</p>
-                <button id="start-btn" class="btn btn-primary">Start assessment <img src="./assets/arrow-up-right.svg" alt="next"></button>
+                <h1>AI Assessment for Business Leaders</h1>
+                <p>This AI assessment is designed for mid-market and large companies, consisting of 7 categories that cover various aspects of your organization’s AI capabilities. Each question is scored, and your total score will place your organization into one of six categories. The results will provide detailed insights into your AI journey and recommend actionable steps to enhance your AI maturity.</p>
+                    <button id="start-btn" class="btn btn-primary">Start assessment <img src="./assets/arrow-up-right.svg" alt="next"></button>
             </div>
         </div>
 
@@ -64,17 +64,17 @@
     <!-- Results Section -->
     <!-- Results Section -->
     <div id="results-section" class="d-none">
-        <div class="results-box">
-            <div class="results-hero-top">
-                <!-- Category name will be dynamically inserted here -->
-                <h2 class="percentage"></h2>
-                <!-- Category image source will be dynamically updated here -->
-                <img class="category-image" src="" alt="category-image">
+        <div class="results-box container-fluid">
+            <div class="results-hero">
+                <div class="results-hero-top">
+                    <!-- Category name will be dynamically inserted here -->
+                    <h2 class="percentage"><span class="score"></span></h2>
+                    <!-- Category image source will be dynamically updated here -->
+                    <img class="category-image" src="" alt="category-image">
+                </div>
             </div>
-            <div class="results-hero-bottom">
+            <div class="results-hero-bottom d-flex justify-content-between flex-wrap">
                 <!-- Result summary dynamically updated -->
-                <p class="result-summary"></p>
-                <div class="progress-bar-2">
                     <!-- This progress bar will show the percentage breakdown of different categories (Pioneers, Leaders, etc.) -->
                 <div class="progress-bar-wrap" style="width: 10%;">
                     <p>Pioneers - 10%</p>
@@ -84,7 +84,7 @@
                     <p>Leaders - 12%</p>
                     <div class="bar" style="background-color: #0BA5ECCC;"></div>
                 </div>
-                <div class="progress-bar-wrap" style="width: 33%;">
+                <div class="progress-bar-wrap" style="width: 23%;">
                     <p>Contenders - 33%</p>
                     <div class="bar" style="background-color: #F63D68CC;"></div>
                 </div>
@@ -102,7 +102,6 @@
                 </div>
                     <!-- Progress bars for other categories -->
                     <!-- Content dynamically generated or set statically -->
-                </div>
             </div>
         </div>
     
@@ -114,10 +113,29 @@
             <h3 class="title">
                 Resources
             </h3>
-            <ul class="resources">
-                <a href="https://www.lyzr.ai/book-demo/" target="_blank" >Speak to an Expert at Lyzr</a>
-                <a href="https://www.lyzr.ai/webinar/enterprise-ai-stack/" target="_blank">Learn about the Enterprise AI Stack</a>
-                <a href="https://academy.lyzr.ai/courses/ai-agents/" target="_blank">Learn about What are AI Agents</a>
+            <h4 class="subheading">Learn the Basics</h4>
+            <ul>
+                <li>Introduction to <a href="https://www.lyzr.ai/blog/what-is-an-ai-agent/" target="_blank">AI Agents</a></li>
+                <li>Understanding the <a href="https://www.lyzr.ai/blog/lagmo-the-large-agent-model-by-lyzr/" target="_blank">AI Infrastructure Stack</a></li>
+            </ul>
+            <h4 class="subheading">How Are AI Agents Deployed?</h4>
+            <p class="side-text">1. Ready-to-Use Solutions</p>
+            <ul>
+                <li>AI SDR <a href="https://www.lyzr.ai/jazon/">(Jazon)</a></li>
+                <li>AI Marketer<a href="https://www.lyzr.ai/skott/">(Skott)</a></li>
+                <li>Industry-Specific <a href="https://www.lyzr.ai/industries/">Solutions</a></li>
+                <li>AI-Powered <a href="https://www.lyzr.ai/chat-agent/">Chatbots</a></li>
+                <li>Explore 100+ <a href="https://www.lyzr.ai/template/100-ai-use-cases/">AI Use Cases</a></li>
+            </ul>
+            <p class="side-text">2. Custom Solutions</p>
+            <ul>
+                <li>Build your own Agent in less than 5 min on <a href="https://agent.lyzr.ai/">Agent API Studio</a></li>
+                <li>Custom <a href="https://www.lyzr.ai/template/top-50-workflow-automation-ideas-for-competitor-ideas/">Workflow Automation</a></li>
+            </ul>
+            <h4 class="subheading">Want to Get Started?</h4>
+            <ul>
+                <li>Speak to the <a href="https://www.lyzr.ai/book-demo/">founding team</a></li>
+                <li>Explore <a href="https://docs.lyzr.ai/introduction">Documentation</a></li>
             </ul>
         </div>
     </div>
