@@ -58,6 +58,46 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+// Handle form submission
+window.handleFormSubmit = function (event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const form = document.getElementById("email-form");
+    const formData = new FormData(form);
+
+    // Convert FormData to URL-encoded string
+    const data = new URLSearchParams();
+    for (const pair of formData) {
+        data.append(pair[0], pair[1]);
+    }
+
+    // Submit the form via fetch to Google Sheets
+    const googleScriptURL = "https://script.google.com/macros/s/AKfycbxJM9AeeJfVMPNEHDbakDFtK_GmAyyhjEhWxdSISQBz1OVFiKGZHsRwJSgxVaJ5EBwB/exec";
+
+    fetch(googleScriptURL, {
+        method: "POST",
+        body: data,
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+        },
+    })
+    .then(response => {
+        if (response.ok) {
+            // Show success popup
+            alert("Form submitted successfully!");
+
+            // Reset the form
+            form.reset();
+        } else {
+            alert("There was an issue submitting the form.");
+        }
+    })
+    .catch(error => {
+        console.error("Error submitting form: ", error);
+        alert("There was an error submitting the form.");
+    });
+};
+
     function loadQuestionsForCategory() {
         const categoryData = data["assessment-questions"][currentCategoryIndex];
         const questions = categoryData.questions;
@@ -140,6 +180,35 @@ document.addEventListener("DOMContentLoaded", () => {
         progressPercentage.textContent = `${progress}%`;
     }
 
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("email-form");
+        
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();  // Prevent the default form submission
+            
+            const formData = new FormData(form);
+            const email = formData.get("Email");
+            const name = formData.get("Name");
+    
+            fetch("https://script.google.com/a/macros/lyzr.ai/s/AKfycbxJM9AeeJfVMPNEHDbakDFtK_GmAyyhjEhWxdSISQBz1OVFiKGZHsRwJSgxVaJ5EBwB/exec", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert("Email submitted successfully!");
+                    form.reset();  // Clear the form fields
+                } else {
+                    alert("Error submitting the form. Please try again.");
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("Error submitting the form. Please try again.");
+            });
+        });
+    });
+    
     function showResults() {
         // Reference to the element with the background
         const body = document.body; // or any other specific container element
@@ -217,3 +286,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
 });
+
