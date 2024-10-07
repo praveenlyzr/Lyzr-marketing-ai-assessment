@@ -10,9 +10,13 @@ body {
 }
 
 .hero-box {
-    max-width: 800px;
+    max-width: 750px;
     height: 100vh;
     margin: 0 40px;
+}
+
+.hero-box .content {
+    margin-bottom: 50px;
 }
 
 .logo {
@@ -64,6 +68,7 @@ p {
 
 #question-section {
     padding: 30px 60px;
+    width: 100vw;
     max-width: 720px;
     margin-bottom: 24px;
 }
@@ -313,6 +318,25 @@ input[type="radio"]:checked {
     font-size: 16px;
 }
 
+.hero-parent {
+    width: 100vw;
+    margin: 0;
+    justify-content: space-between;
+}
+
+.partner-logos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+    margin: 0 40px 0 10px;
+}
+
+.partner-logos img{
+    height: 150px;
+    width: auto;
+}
+
 
 /* Ensure the parent container is flexible */
 .results-hero-top {
@@ -356,4 +380,13 @@ input[type="radio"]:checked {
     }
 }
 
+.form-inputs input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    
+}
 

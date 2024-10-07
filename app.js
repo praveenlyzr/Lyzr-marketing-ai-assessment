@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const startButton = document.getElementById("start-btn");
     const startSection = document.getElementById("start-section");
     const questionSection = document.getElementById("question-section");
+    const partnerSection = document.getElementById("partner-section");
     const answersContainer = document.getElementById("answers-container");
     const nextQuestionButton = document.getElementById("next-question-btn");
     const progressBar = document.querySelector('.progress-bar');
@@ -217,6 +218,7 @@ window.handleFormSubmit = function (event) {
         body.style.background = 'none';
     
         questionSection.classList.add("d-none");
+        partnerSection.classList.add("d-none");
         resultsSection.classList.remove("d-none");
         totalScore = Object.values(categoryScores).reduce((acc, categoryScore) => acc + categoryScore, 0);
     

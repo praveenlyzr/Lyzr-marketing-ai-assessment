@@ -34,7 +34,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore-compat.js"></script>
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid align-items-center d-flex flex-lg-row flex-column hero-parent">
         <!-- Hero Section -->
         <div class="hero-box" id="start-section">
             <div class="logo"><img src="./assets/logo.svg" alt="lyzr"></div>
@@ -65,7 +65,14 @@
             <div id="answers-container"></div>
 
             <button id="next-question-btn" class="btn btn-primary d-flex justify-content-between">Next Question <img src="./assets/arrow-right.svg"></button>
-        </div>       
+        </div>   
+        <div class="partner-logos" id="partner-section">
+            <img src="./assets/1.png" alt="Accenture Ventures">
+            <img src="./assets/2.png" alt="AWS">
+            <img src="./assets/3.png" alt="Google Cloud Program">
+            <img src="./assets/4.png" alt="IBM Watson">
+            <img src="./assets/5.png" alt="Springboot">
+        </div>    
     </div>
     <!-- Results Section -->
     <!-- Results Section -->
@@ -145,14 +152,16 @@
             </ul>
         </div>
         <div class="results-box">
-            <h3 class="title">Want to know more about your business?</h3>
+            <h3 class="title">Want to integrate AI your business?</h3>
             <form 
             id="email-form"
             onsubmit="return handleFormSubmit(event)"
             >
-            <input name="Email" type="email" placeholder="Email" required>
-            <input name="Name" type="text" placeholder="Name" required>
-            <button class="btn btn-primary" id="submit-btn" type="submit">Send</button>
+            <div class="form-inputs">
+                <input name="Email" type="email" placeholder="Email" required>
+                <input name="Name" type="text" placeholder="Name" required>
+            </div>
+            <button class="btn btn-primary" id="submit-btn" type="submit">Send <img src="./assets/arrow-right.svg"></button>
         </form>
         </div>
     </div>
