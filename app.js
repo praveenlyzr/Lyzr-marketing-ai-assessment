@@ -232,32 +232,32 @@ window.handleFormSubmit = function (event) {
     
         const categoryData = {
             "pioneers": {
-                label: "10% Pioneers",
+                label: "Pioneers",
                 imageSrc: "./assets/pioneers.svg",
                 color: "#12B76ACC"
             },
             "leaders": {
-                label: "12% Leaders",
+                label: "Leaders",
                 imageSrc: "./assets/leaders.svg",
                 color: "#0BA5ECCC"
             },
             "contenders": {
-                label: "33% Contenders",
+                label: "Contenders",
                 imageSrc: "./assets/contenders.svg",
                 color: "#F63D68CC"
             },
             "chasers": {
-                label: "15% Chasers",
+                label: "Chasers",
                 imageSrc: "./assets/chasers.svg",
                 color: "#7A5AF8CC"
             },
             "followers": {
-                label: "16% Followers",
+                label: "Followers",
                 imageSrc: "./assets/followers.svg",
                 color: "#FB6514CC"
             },
             "laggards": {
-                label: "14% Laggards",
+                label: "Laggards",
                 imageSrc: "./assets/laggards.svg",
                 color: "#4E5BA6CC"
             }
