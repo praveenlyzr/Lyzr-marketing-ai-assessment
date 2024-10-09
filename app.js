@@ -282,7 +282,9 @@ window.handleFormSubmit = function (event) {
             <h3 class="title">Next Steps:</h3>
             <div class="next-steps">
                 <div>
-                    ${Object.entries(categoryResult.next_steps).map(([step, description]) => `<p class="result-content-p">${description}</p>`).join('')}
+                    <ul>
+                     ${Object.entries(categoryResult.next_steps).map(([step, description]) => `<li class="result-content-p">${description}</li>`).join('')}
+                    </ul>
                 </div>
             </div>`;
     }
