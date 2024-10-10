@@ -267,9 +267,9 @@ window.handleFormSubmit = function (event) {
     
         // Apply the dynamic font color to the label
         const percentageLabel = document.querySelector(".percentage");
-        percentageLabel.textContent = selectedCategory.label;
-        percentageLabel.style.color = selectedCategory.color;  // Set the font color dynamically
-    
+        percentageLabel.innerHTML = `<span style="color: black;">Your Category is:</span> ${selectedCategory.label}`;
+        percentageLabel.style.color = selectedCategory.color;  // Set the font color dynamically for category name
+
         document.querySelector(".category-image").src = selectedCategory.imageSrc;
     
         const categoryResult = scoreData[categoryKey];
