@@ -133,6 +133,7 @@ input[type="radio"] {
     border-radius: 50%; /* Makes the border circular */
     appearance: none; /* Remove default radio button style */
     outline: none; /* Remove outline */
+    margin-right: 8px;
 }
 
 .color-0 input {
@@ -317,6 +318,7 @@ input[type="radio"]:checked {
 
 .results-box li {
     font-size: 16px;
+    margin-bottom: 2px;
 }
 
 .hero-parent {
@@ -442,4 +444,8 @@ input[type="radio"]:checked {
 
 .orange {
     background-color: #f79321;
+}
+
+.report-section {
+    margin-top: 20px;
 }
