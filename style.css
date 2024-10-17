@@ -128,7 +128,38 @@ p {
 }
 
 input[type="radio"] {
-    margin-right: 10px;
+    width: 12px; /* Adjust width as needed */
+    height: 12px; /* Adjust height as needed */
+    border-radius: 50%; /* Makes the border circular */
+    appearance: none; /* Remove default radio button style */
+    outline: none; /* Remove outline */
+}
+
+.color-0 input {
+    border: 1px solid #03C03C; /* Dark Green */
+    box-shadow: 0 0 0 1px #03C03C;
+}
+
+.color-1 input {
+    border: 1px solid #568203; /* Dark Green */
+    box-shadow: 0 0 0 1px #568203;
+}
+
+.color-2 input {
+    border: 1px solid 	#880808; /* Dark Red */
+    box-shadow: 0 0 0 1px 	#880808;
+}
+
+.color-3 input {
+    border: 1px solid #F44336; /* Dark Red */
+    box-shadow: 0 0 0 1px #F44336;
+}
+
+input[type="radio"]:checked {
+    background-color: #5638cf; /* Add background color when selected */
+    border-color: #5638cf; /* Change border color when selected */
+    box-shadow: 0 0 0 1px #5638cf;
+    border: 1px solid #5638cf;
 }
 
 /* Progress Bar Styles */
@@ -403,4 +434,12 @@ input[type="radio"] {
     height: 100%;
     object-fit: cover; /* Ensures the images cover the entire carousel area */
     object-position: center; /* Centers the images */
+}
+
+.dark {
+    background-color: #000000;
+}
+
+.orange {
+    background-color: #f79321;
 }

@@ -126,16 +126,23 @@ window.handleFormSubmit = function (event) {
             questionData.options.forEach((option, index) => {
                 const label = document.createElement('label');
                 label.classList.add('radio-label', `color-${index}`); // Add color class based on index
-                label.innerHTML = `<input type="radio" name="answer-${questionIndex}" data-points="${option.points}"> ${option.answer}`;
+            
+                // Wrap the input in a span to ensure the label is clickable
+                label.innerHTML = `
+                    <input type="radio" name="answer-${questionIndex}" data-points="${option.points}">
+                    <span>${option.answer}</span>
+                `;
+            
                 questionAnswersContainer.appendChild(label);
-
+            
+                // Add change event listener for the radio input
                 label.querySelector('input').addEventListener('change', (event) => {
                     const selectedPoints = parseInt(event.target.getAttribute("data-points"));
                     answeredQuestions[questionIndex] = selectedPoints;
                     checkIfAllQuestionsAnswered();
                     scrollToNextQuestion(questionIndex);
                 });
-            });
+            });            
 
             questionContent.appendChild(questionAnswersContainer);
             questionBox.appendChild(questionContent);
@@ -267,7 +274,7 @@ window.handleFormSubmit = function (event) {
     
         // Apply the dynamic font color to the label
         const percentageLabel = document.querySelector(".percentage");
-        percentageLabel.innerHTML = `<span style="color: black;">Your Category is:</span> ${selectedCategory.label}`;
+        percentageLabel.innerHTML = `<span style="color: black;">Your Category: </span> ${selectedCategory.label}`;
         percentageLabel.style.color = selectedCategory.color;  // Set the font color dynamically for category name
 
         document.querySelector(".category-image").src = selectedCategory.imageSrc;
