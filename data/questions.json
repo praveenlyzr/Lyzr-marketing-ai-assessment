@@ -8,7 +8,7 @@
             "text": "Does your organization have a well-defined AI strategy?",
             "options": [
               {"answer": "We’ve got a master plan, totally aligned", "points": 5},
-              {"answer": "Strategy’s there, but needs a polish", "points": 3},
+              {"answer": "Strategy’s there, but needs polishing", "points": 3},
               {"answer": "Work in progress, slowly moving", "points": 1},
               {"answer": "Strategy? We’re still brainstorming…", "points": 0}
             ]
@@ -104,7 +104,7 @@
             ]
           },
           {
-            "text": "How big of a priority is AI in your budget?",
+            "text": "How much of a priority is AI in your digital budget?",
             "options": [
               {"answer": "AI gets the biggest slice", "points": 5},
               {"answer": "AI shares the budget with other tech", "points": 3},
