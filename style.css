@@ -27,6 +27,7 @@ body {
 }
 
 .logo img{
+    width: 100px;
     height: auto;
     margin-bottom: 20px;
     margin-top: 100px;
@@ -89,7 +90,7 @@ p {
 }
 
 #question-section .header-logo img{
-    width: 7vw;
+    width: 100px;
     height: auto;
     margin-bottom: 20px;
 }
