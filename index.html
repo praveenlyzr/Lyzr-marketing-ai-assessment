@@ -195,9 +195,9 @@
             id="email-form"
             onsubmit="return handleFormSubmit(event)"
             >
-            <input name="Email" type="email" placeholder="Email" required>
-            <input name="Name" type="text" placeholder="Name" required>
-            <button class="btn btn-primary" id="submit-btn" type="submit" onclick="window.location.href='https://drive.google.com/uc?export=download&id=1lLtPkLO58eOTDdGIaIW_g698rQAl_hUh';">
+            <input name="Email" type="email" placeholder="Email" required oninput="checkFormFields()">
+            <input name="Name" type="text" placeholder="Name" required oninput="checkFormFields()">
+            <button class="btn btn-primary" id="submit-btn" type="submit" onclick="window.location.href='https://drive.google.com/uc?export=download&id=1lLtPkLO58eOTDdGIaIW_g698rQAl_hUh';" disabled>
                 Download
             </button>
             
@@ -209,5 +209,19 @@
 
     <script src="./app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    function checkFormFields() {
+        const email = document.querySelector('input[name="Email"]').value;
+        const name = document.querySelector('input[name="Name"]').value;
+        const submitBtn = document.getElementById('submit-btn');
+        
+        // Enable button if both fields are filled, otherwise disable it
+        if (email && name) {
+            submitBtn.disabled = false;
+        } else {
+            submitBtn.disabled = true;
+        }
+    }
+</script>
 </body>
 </html>
