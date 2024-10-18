@@ -449,3 +449,33 @@ input[type="radio"]:checked {
 .report-section {
     margin-top: 20px;
 }
+
+.report {
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between elements */
+    width: 100%; /* Ensure form takes the full width of the parent */
+}
+
+/* Input fields with 45% width */
+form input {
+    width: 45%;           /* Input field width */
+    padding: 10px;
+    margin-bottom: 10px;  /* Add space between fields */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    min-width: 200px;      /* Prevent shrinking too small */
+}
+
+/* Responsive Form Layout */
+@media (max-width: 768px) {
+    form input, form button {
+        width: 100%;      /* Full width on small screens */
+        margin: 10px 0;   /* Space between elements */
+    }
+}

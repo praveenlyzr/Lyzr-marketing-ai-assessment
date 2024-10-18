@@ -188,6 +188,41 @@ window.handleFormSubmit = function (event) {
         progressPercentage.textContent = `${progress}%`;
     }
 
+    // Handle form submission
+    window.handleFormSubmit = function (event) {
+        event.preventDefault(); // Prevent default form submission
+        const form = document.getElementById("email-form");
+        const formData = new FormData(form);
+        // Convert FormData to URL-encoded string
+        const data = new URLSearchParams();
+        for (const pair of formData) {
+            data.append(pair[0], pair[1]);
+        }
+        // Submit the form via fetch to Google Sheets
+        const googleScriptURL = "https://script.google.com/macros/s/AKfycbxJM9AeeJfVMPNEHDbakDFtK_GmAyyhjEhWxdSISQBz1OVFiKGZHsRwJSgxVaJ5EBwB/exec";
+        fetch(googleScriptURL, {
+            method: "POST",
+            body: data,
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+        })
+        .then(response => {
+            if (response.ok) {
+                // Show success popup
+                alert("Form submitted successfully!");
+                // Reset the form
+                form.reset();
+            } else {
+                alert("There was an issue submitting the form.");
+            }
+        })
+        .catch(error => {
+            console.error("Error submitting form: ", error);
+            alert("There was an error submitting the form.");
+        });
+};
+
     document.addEventListener("DOMContentLoaded", () => {
         const form = document.getElementById("email-form");
         
