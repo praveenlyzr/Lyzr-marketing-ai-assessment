@@ -27,7 +27,6 @@ body {
 }
 
 .logo img{
-    width: 7vw;
     height: auto;
     margin-bottom: 20px;
     margin-top: 100px;
@@ -424,20 +423,6 @@ input[type="radio"]:checked {
     box-sizing: border-box;
 }
 
-.carousel-inner {
-    width: 100%;
-    height: auto; /* Set a fixed height for the carousel */
-    overflow: hidden;
-    margin: 30px 0;
-}
-
-.carousel-inner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the images cover the entire carousel area */
-    object-position: center; /* Centers the images */
-}
-
 .dark {
     background-color: #000000;
 }
@@ -477,5 +462,21 @@ form input {
     form input, form button {
         width: 100%;      /* Full width on small screens */
         margin: 10px 0;   /* Space between elements */
+    }
+}
+
+/* Hide results-hero-bottom for screens smaller than 783px */
+@media (max-width: 783px) {
+    .results-hero-bottom {
+        display: none;
+    }
+}
+
+/* Switch to column layout for screens smaller than or equal to 454px */
+@media (max-width: 454px) {
+    .results-hero-top {
+        display: flex;
+        flex-direction: column !important;
+        align-items: center;  /* Ensure content is centered */
     }
 }
