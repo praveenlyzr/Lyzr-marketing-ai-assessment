@@ -480,4 +480,8 @@ form input {
         flex-direction: column !important;
         align-items: center;  /* Ensure content is centered */
     }
+
+    #question-section {
+        padding: 15px;
+    }
 }
