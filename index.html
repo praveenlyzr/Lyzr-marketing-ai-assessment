@@ -188,39 +188,42 @@
             <h3 class="title">
                 Get a detailed guide: 
             </h3>
-            <!--<img class="img-container preview-image" src="./assets/preview.png" alt="">-->
-            <div class="d-flex btns flex-row report-section report">
-            <form 
-            id="email-form"
-            onsubmit="return handleFormSubmit(event)"
-            >
-            <input name="Email" type="email" placeholder="Email" required oninput="checkFormFields()">
-            <input name="Name" type="text" placeholder="Name" required oninput="checkFormFields()">
-            <button class="btn btn-primary" id="submit-btn" type="submit" onclick="window.location.href='https://drive.google.com/uc?export=download&id=1lLtPkLO58eOTDdGIaIW_g698rQAl_hUh';" disabled>
-                Download
-            </button>
-            
-            </form>
-            </div>
+            <!--<img class="img-container preview-image" src="./assets/preview.png" alt="">--> 
+            <div class="book-wrapper">
+                <div id="book-wrapper"></div>
+            </div>            
         </div>
     </div>
     
 
     <script src="./app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- HubSpot Form Embed Script -->
+    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
     <script>
-    function checkFormFields() {
-        const email = document.querySelector('input[name="Email"]').value;
-        const name = document.querySelector('input[name="Name"]').value;
-        const submitBtn = document.getElementById('submit-btn');
-        
-        // Enable button if both fields are filled, otherwise disable it
-        if (email && name) {
-            submitBtn.disabled = false;
-        } else {
-            submitBtn.disabled = true;
+        hbspt.forms.create({
+        portalId: "45094316",
+        formId: "f166dc4e-ab4c-46bc-a18b-e9417b46a55c",
+        target: "#book-wrapper",
+        locale: 'en',
+        translations: {
+            en: {
+                required: "We can't move forward without this tidbit.",
+                invalidEmailFormat: 'Oops, that email address seems a bit off.',
+            },
+        },
+        onFormReady: function() {
+            console.log("HubSpot form loaded");
+            // Reapply styles to ensure they are not overridden
+            $("body").addClass("book-wrapper");
         }
-    }
-</script>
+    });
+
+    // Ensure HubSpot form renders correctly once document is ready
+    jQuery(document).ready(function($) {
+        $("body").addClass("book-wrapper");
+    });
+    </script>
+
 </body>
 </html>
