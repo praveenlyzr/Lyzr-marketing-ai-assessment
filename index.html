@@ -201,18 +201,26 @@
     <!-- HubSpot Form Embed Script -->
     <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
     <script>
-    hbspt.forms.create({
-        portalId: "45094316",
-        formId: "f166dc4e-ab4c-46bc-a18b-e9417b46a55c",
-        target: "#hubspot-form-container",
+        hbspt.forms.create({
+        region: "na1",  // Ensure this region is correct
+        portalId: "45094316",  // Confirm this matches your HubSpot portal ID
+        formId: "0a86b743-0b9b-4385-bc94-cac86032f10f",  // Confirm this matches the form ID
+        target: "#book-wrapper",  // Ensure the target div is correct
         locale: 'en',
         translations: {
-        en: {
-            required: "We can't move forward without this tidbit.",
-            invalidEmailFormat: 'Oops, that email address seems a bit off.',
+            en: {
+                required: "We can't move forward without this tidbit.",
+                invalidEmailFormat: 'Oops, that email address seems a bit off.',
+            },
         },
+        onFormSubmit: function() {
+            console.log("Form submitted successfully!");
         },
+        onFormReady: function() {
+            console.log("HubSpot form ready");
+        }
     });
+
 
     // Ensure HubSpot form renders correctly once document is ready
     jQuery(document).ready(function($) {
