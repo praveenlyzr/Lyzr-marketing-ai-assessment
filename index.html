@@ -190,7 +190,7 @@
             </h3>
             <!--<img class="img-container preview-image" src="./assets/preview.png" alt="">--> 
             <div class="book-wrapper">
-                <div id="book-wrapper"></div>
+                <div id="hubspot-form-container"></div>
             </div>            
         </div>
     </div>
@@ -201,22 +201,17 @@
     <!-- HubSpot Form Embed Script -->
     <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
     <script>
-        hbspt.forms.create({
+    hbspt.forms.create({
         portalId: "45094316",
         formId: "f166dc4e-ab4c-46bc-a18b-e9417b46a55c",
-        target: "#book-wrapper",
+        target: "#hubspot-form-container",
         locale: 'en',
         translations: {
-            en: {
-                required: "We can't move forward without this tidbit.",
-                invalidEmailFormat: 'Oops, that email address seems a bit off.',
-            },
+        en: {
+            required: "We can't move forward without this tidbit.",
+            invalidEmailFormat: 'Oops, that email address seems a bit off.',
         },
-        onFormReady: function() {
-            console.log("HubSpot form loaded");
-            // Reapply styles to ensure they are not overridden
-            $("body").addClass("book-wrapper");
-        }
+        },
     });
 
     // Ensure HubSpot form renders correctly once document is ready
