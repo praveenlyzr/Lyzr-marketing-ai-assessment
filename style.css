@@ -235,10 +235,19 @@ input[type="radio"]:checked {
     font-size: 16px;
 }
 
-.results-box .results-hero-top{
+.results-box .category-and-img{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.results-box .results-hero-top{
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -404,6 +413,12 @@ input[type="radio"]:checked {
     margin: 20px auto;
 }
 
+@media only screen and (max-width: 838px) {
+    .results-hero-bottom{
+        display: none;
+    }
+}
+
 /* Responsive behavior for smaller screens */
 @media only screen and (max-width: 768px) {
     .results-hero-top, .results-hero-bottom {
@@ -485,7 +500,7 @@ ul {
 }
 
 li {
-    list-style-type: none;  /* No bullet points */
+    list-style-type: circle;  /* No bullet points */
 }
 
 .book-wrapper ul.inputs-list.multi-container li.hs-form-checkbox {

@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const categoryLabel = document.getElementById("category-label");
     const progressPercentage = document.querySelector('.progress-percentage');
     const resultsSection = document.getElementById("results-section");
-    const resultsContent = document.querySelector(".results-content");
     const resultsHero = document.querySelector('.results-hero'); // Added reference for hero top section
 
     let data = {};
@@ -59,45 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-// Handle form submission
-window.handleFormSubmit = function (event) {
-    event.preventDefault(); // Prevent default form submission
-
-    const form = document.getElementById("email-form");
-    const formData = new FormData(form);
-
-    // Convert FormData to URL-encoded string
-    const data = new URLSearchParams();
-    for (const pair of formData) {
-        data.append(pair[0], pair[1]);
-    }
-
-    // Submit the form via fetch to Google Sheets
-    const googleScriptURL = "https://script.google.com/macros/s/AKfycbxJM9AeeJfVMPNEHDbakDFtK_GmAyyhjEhWxdSISQBz1OVFiKGZHsRwJSgxVaJ5EBwB/exec";
-
-    fetch(googleScriptURL, {
-        method: "POST",
-        body: data,
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-        },
-    })
-    .then(response => {
-        if (response.ok) {
-            // Show success popup
-            alert("Form submitted successfully!");
-
-            // Reset the form
-            form.reset();
-        } else {
-            alert("There was an issue submitting the form.");
-        }
-    })
-    .catch(error => {
-        console.error("Error submitting form: ", error);
-        alert("There was an error submitting the form.");
-    });
-};
 
     function loadQuestionsForCategory() {
         const categoryData = data["assessment-questions"][currentCategoryIndex];
@@ -151,6 +111,17 @@ window.handleFormSubmit = function (event) {
 
         updateProgressBar();
     }
+
+    function showResults() {
+        const resultsData = {
+            totalScore: Object.values(categoryScores).reduce((sum, score) => sum + score, 0),
+            categoryScores: categoryScores
+        };
+
+        sessionStorage.setItem('resultsData', JSON.stringify(resultsData));
+        window.location.href = './results.html'; // Redirect to results page
+    }
+
 
     function checkIfAllQuestionsAnswered() {
         const categoryData = data["assessment-questions"][currentCategoryIndex];
@@ -251,85 +222,6 @@ window.handleFormSubmit = function (event) {
             });
         });
     });
-    
-    function showResults() {
-        // Reference to the element with the background
-        const body = document.body; // or any other specific container element
-    
-        // Remove the background
-        body.style.background = 'none';
-    
-        questionSection.classList.add("d-none");
-        partnerSection.classList.add("d-none");
-        resultsSection.classList.remove("d-none");
-        totalScore = Object.values(categoryScores).reduce((acc, categoryScore) => acc + categoryScore, 0);
-    
-        let categoryKey;
-        if (totalScore >= 95) categoryKey = "pioneers";
-        else if (totalScore >= 80) categoryKey = "leaders";
-        else if (totalScore >= 65) categoryKey = "contenders";
-        else if (totalScore >= 50) categoryKey = "chasers";
-        else if (totalScore >= 35) categoryKey = "followers";
-        else categoryKey = "laggards";
-    
-        const categoryData = {
-            "pioneers": {
-                label: "Pioneers",
-                imageSrc: "./assets/pioneers.svg",
-                color: "#12B76ACC"
-            },
-            "leaders": {
-                label: "Leaders",
-                imageSrc: "./assets/leaders.svg",
-                color: "#0BA5ECCC"
-            },
-            "contenders": {
-                label: "Contenders",
-                imageSrc: "./assets/contenders.svg",
-                color: "#F63D68CC"
-            },
-            "chasers": {
-                label: "Chasers",
-                imageSrc: "./assets/chasers.svg",
-                color: "#7A5AF8CC"
-            },
-            "followers": {
-                label: "Followers",
-                imageSrc: "./assets/followers.svg",
-                color: "#FB6514CC"
-            },
-            "laggards": {
-                label: "Laggards",
-                imageSrc: "./assets/laggards.svg",
-                color: "#4E5BA6CC"
-            }
-        };
-    
-        const selectedCategory = categoryData[categoryKey];
-    
-        // Apply the dynamic font color to the label
-        const percentageLabel = document.querySelector(".percentage");
-        percentageLabel.innerHTML = `<span style="color: black;">Your Category: </span> ${selectedCategory.label}`;
-        percentageLabel.style.color = selectedCategory.color;  // Set the font color dynamically for category name
-
-        document.querySelector(".category-image").src = selectedCategory.imageSrc;
-    
-        const categoryResult = scoreData[categoryKey];
-        
-        // Inserting the summary into .results-hero
-        resultsHero.innerHTML += `<p class="d-block category-summary">${categoryResult.summary}</p>`; // Add summary to hero top
-
-        resultsContent.innerHTML = 
-            `<h2>Your Score: ${totalScore}</h2>
-            <h3 class="title">Next Steps:</h3>
-            <div class="next-steps">
-                <div>
-                    <ul>
-                     ${Object.entries(categoryResult.next_steps).map(([step, description]) => `<li class="result-content-p">${description}</li>`).join('')}
-                    </ul>
-                </div>
-            </div>`;
-    }
     
 });
 
